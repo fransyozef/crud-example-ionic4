@@ -1,3 +1,5 @@
-<p>
-  items-list-item works!
-</p>
+<li class="list-group-item" style="margin-bottom:10px;" *ngIf="item">
+  <Strong>{{ item.title }}</Strong>
+  <hr>
+  {{ item.description }}
+</li>

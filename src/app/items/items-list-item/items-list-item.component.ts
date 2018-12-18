@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ItemsService } from '../_services/items.service';
+import { ItemModel } from '../_models/item.model';
 
 @Component({
   selector: 'app-items-list-item',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemsListItemComponent implements OnInit {
 
-  constructor() { }
+  @Input() item: ItemModel;
+
+  constructor(
+    private itemsService: ItemsService,
+  ) { }
 
   ngOnInit() {
+  }
+
+  edit() {
+    // this.router.navigate(['/item-edit/' + this.item.id]);
+  }
+
+  delete() {
+    this.itemsService.delete(this.item.id).subscribe();
   }
 
 }
