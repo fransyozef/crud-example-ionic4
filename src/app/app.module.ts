@@ -25,6 +25,7 @@ import { ItemsService } from './items/_services/items.service';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [
     StatusBar,
