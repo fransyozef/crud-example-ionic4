@@ -5,5 +5,11 @@
 </ion-header>
 
 <ion-content padding>
+
+  <p *ngIf="!hasItems(items$ | async)" class="alert alert-danger" role="alert">
+      <Strong>You don't have any items.</Strong><br>
+      Try adding one.
+  </p>
+
   <app-items-list></app-items-list>
 </ion-content>
