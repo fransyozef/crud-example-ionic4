@@ -1,3 +1,13 @@
-<ion-item  *ngIf="item">
-  {{ item.title }}
-</ion-item>
+<ion-item-sliding #slidingItem>
+  <ion-item (click)="edit()">
+    {{ item.title }}
+  </ion-item>
+  <ion-item-options side="end">
+
+      <ion-button color="danger" (click)="delete()">
+          <ion-icon name="trash"></ion-icon>
+          Delete
+      </ion-button>
+
+    </ion-item-options>
+</ion-item-sliding>

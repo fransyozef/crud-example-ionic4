@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ItemsService } from '../_services/items.service';
 import { ItemModel } from '../_models/item.model';
+import { IonItemSliding } from '@ionic/angular';
 
 @Component({
   selector: 'app-items-list-item',
@@ -11,6 +12,10 @@ export class ItemsListItemComponent implements OnInit {
 
   @Input() item: ItemModel;
 
+  // Using a viewchild to close the item before deleting
+  // BUG IONIC V4 beta https://github.com/ionic-team/ionic/issues/15486
+  @ViewChild('slidingItem') slidingItem: IonItemSliding;
+
   constructor(
     private itemsService: ItemsService,
   ) { }
@@ -19,10 +24,12 @@ export class ItemsListItemComponent implements OnInit {
   }
 
   edit() {
+    console.log("edit");
     // this.router.navigate(['/item-edit/' + this.item.id]);
   }
 
   delete() {
+    this.slidingItem.close(); // BUG IONIC V4 beta https://github.com/ionic-team/ionic/issues/15486
     this.itemsService.delete(this.item.id).subscribe();
   }
 

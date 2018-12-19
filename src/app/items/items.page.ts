@@ -25,4 +25,8 @@ export class ItemsPage implements OnInit {
     return items && items.length > 0 ? true : false;
   }
 
+  add() {
+    console.log('add');
+  }
+
 }
