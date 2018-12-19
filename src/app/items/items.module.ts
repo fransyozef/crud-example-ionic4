@@ -9,11 +9,16 @@ import { ItemsPage } from './items.page';
 import { ItemsListComponent } from './items-list/items-list.component';
 import { ItemsListItemComponent } from './items-list-item/items-list-item.component';
 import { ItemAddEditComponent } from './item-add-edit/item-add-edit.component';
+import { ItemAddPage } from './item-add/item-add.page';
 
 const routes: Routes = [
   {
     path: '',
     component: ItemsPage
+  },
+  {
+    path: 'add',
+    component: ItemAddPage
   }
 ];
 
@@ -24,6 +29,12 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ItemsPage, ItemsListComponent, ItemsListItemComponent, ItemAddEditComponent]
+  declarations: [
+    ItemsPage,
+    ItemsListComponent,
+    ItemsListItemComponent,
+    ItemAddEditComponent,
+    ItemAddPage
+  ]
 })
 export class ItemsPageModule {}

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject,throwError, of , BehaviorSubject} from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 import { ItemModel } from './_models/item.model';
 import { ItemsService } from './_services/items.service';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-items',
@@ -15,6 +17,8 @@ export class ItemsPage implements OnInit {
 
   constructor(
     private itemsService: ItemsService,
+    private router: Router,
+    private navCtrl: NavController
   ) { }
 
   ngOnInit() {
@@ -26,7 +30,7 @@ export class ItemsPage implements OnInit {
   }
 
   add() {
-    console.log('add');
+    this.navCtrl.navigateForward('/items/add');
   }
 
 }
