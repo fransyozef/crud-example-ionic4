@@ -31,6 +31,17 @@ export class ItemAddEditComponent implements OnInit {
     this.initForm();
   }
 
+  delete() {
+    if (this.item) {
+      this.isProcessing  = true;
+      this.itemsService.delete(this.item.id).subscribe(
+        (status) => {
+          this.formSubmitEvent.next('delete');
+        }
+      );
+    }
+  }
+
   onSubmit($event) {
 
     this.isProcessing  = true;

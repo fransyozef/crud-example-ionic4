@@ -1,0 +1,13 @@
+ion-item{
+
+
+    &.required {
+
+        border: 1px solid red;
+
+        ion-label {
+            color : red;
+        }
+    }
+
+}

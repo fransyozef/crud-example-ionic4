@@ -1,9 +1,26 @@
 <ion-header>
+
   <ion-toolbar>
-    <ion-title>item-edit</ion-title>
+
+    <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Item edit</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <app-item-add-edit></app-item-add-edit>
+
+  <div *ngIf="hasNoItem">
+      <h1>Cannot find item</h1>
+
+      <p class="alert alert-danger" role="alert">
+        <strong>Error!</strong>
+        <br>Need food!
+      </p>
+  </div>
+
+  <app-item-add-edit [item]="item" *ngIf="item" (formSubmitEvent)="formSubmitEvent($event)"></app-item-add-edit>
 </ion-content>

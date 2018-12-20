@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ItemsService } from '../_services/items.service';
 import { ItemModel } from '../_models/item.model';
-import { IonItemSliding } from '@ionic/angular';
+import { IonItemSliding, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-items-list-item',
@@ -18,14 +18,14 @@ export class ItemsListItemComponent implements OnInit {
 
   constructor(
     private itemsService: ItemsService,
+    private navCtrl: NavController
   ) { }
 
   ngOnInit() {
   }
 
   edit() {
-    console.log("edit");
-    // this.router.navigate(['/item-edit/' + this.item.id]);
+    this.navCtrl.navigateForward('/items/edit/' + this.item.id);
   }
 
   delete() {
