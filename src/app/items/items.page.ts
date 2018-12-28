@@ -15,6 +15,8 @@ export class ItemsPage implements OnInit {
 
   items$: BehaviorSubject<ItemModel[]>;
 
+  isProcessing: Boolean = false;
+
   constructor(
     private itemsService: ItemsService,
     private router: Router,
@@ -23,6 +25,15 @@ export class ItemsPage implements OnInit {
 
   ngOnInit() {
     this.items$  = this.itemsService.items$;
+  }
+
+  refresh() {
+    this.isProcessing  = true;
+    this.itemsService.fetch().subscribe(
+      (result) => {
+        this.isProcessing  = false;
+      }
+    );
   }
 
   hasItems(items: ItemModel[]): boolean {

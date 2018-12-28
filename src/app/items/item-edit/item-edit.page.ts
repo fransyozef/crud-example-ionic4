@@ -19,6 +19,7 @@ export class ItemEditPage implements OnInit {
   readyView: Boolean = false;
   hasFetched: Boolean  = false;
   hasNoItem: Boolean = false;
+  isProcessing: Boolean = false;
 
   constructor(
     private itemsService: ItemsService,
@@ -42,8 +43,8 @@ export class ItemEditPage implements OnInit {
   }
 
   delete() {
-    if (this.item) {
-      // this.isProcessing  = true;
+    if (this.item && !this.isProcessing) {
+      this.isProcessing  = true;
       this.itemsService.delete(this.item.id).subscribe(
         (status) => {
           this.navCtrl.navigateBack('/items');

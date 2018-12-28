@@ -1,4 +1,5 @@
 <form  [formGroup]="itemForm">
+
     <ion-item [ngClass]="{'required': checkField(itemForm.get('title')) }">
         <ion-label>Title *</ion-label>
         <ion-input required type="text" placeholder="Title" formControlName="title"></ion-input>
@@ -9,13 +10,20 @@
         <ion-input type="text" placeholder="Description" formControlName="description"></ion-input>
     </ion-item>
 
-   
     <p class="alert alert-warning" role="alert"  *ngIf="isProcessing">
         <ion-spinner></ion-spinner>
         Please wait..
     </p>
 
-    <ion-button *ngIf="!isProcessing" expand="block" (click)="onSubmit($event)" [disabled]="!itemForm.valid && !isProcessing">{{getButtonText()}}</ion-button>
-    <!-- <ion-button *ngIf="!isProcessing && item" expand="block" color="danger" (click)="delete()">Delete item</ion-button> -->
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-button *ngIf="!isProcessing" expand="block" (click)="onSubmit($event)" [disabled]="!itemForm.valid && !isProcessing">{{getButtonText()}}</ion-button>
+            </ion-col>
+            <ion-col *ngIf="item">
+                <ion-button *ngIf="!isProcessing" expand="block" color="danger" (click)="delete()">Delete item</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
 </form>

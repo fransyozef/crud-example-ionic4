@@ -3,8 +3,8 @@
     <ion-title>Items overview</ion-title>
 
     <ion-buttons slot="end">
-      <ion-icon slot="icon-only" name="add" (click)="add()"></ion-icon>
-  
+      <ion-icon slot="icon-only" name="add" (click)="add()" color="primary"></ion-icon>
+
     </ion-buttons>
 
   </ion-toolbar>
@@ -12,16 +12,21 @@
 
 <ion-content padding>
 
-  <p *ngIf="!hasItems(items$ | async)" class="alert alert-danger" role="alert">
-      <Strong>You don't have any items.</Strong><br>
-      Try adding one.
+  <p class="alert alert-warning" role="alert" *ngIf="isProcessing">
+    <ion-spinner></ion-spinner>
+    Please wait..
+  </p>
+
+  <p *ngIf="!hasItems(items$ | async) && !isProcessing" class="alert alert-danger" role="alert">
+    <Strong>You don't have any items.</Strong><br>
+    Try adding one.
   </p>
 
   <app-items-list></app-items-list>
 </ion-content>
 
-<!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button (click)="add()">
-      <ion-icon name="add" ></ion-icon>
-    </ion-fab-button>
-</ion-fab> -->
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="refresh()">
+    <ion-icon name="refresh"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
