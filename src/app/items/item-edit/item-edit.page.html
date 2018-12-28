@@ -8,6 +8,10 @@
 
     <ion-title>Item edit</ion-title>
 
+    <ion-buttons slot="end">
+      <ion-icon slot="icon-only" name="trash" (click)='delete()' *ngIf="item"></ion-icon>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 

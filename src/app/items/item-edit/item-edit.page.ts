@@ -41,6 +41,17 @@ export class ItemEditPage implements OnInit {
     this.navCtrl.navigateBack('/items');
   }
 
+  delete() {
+    if (this.item) {
+      // this.isProcessing  = true;
+      this.itemsService.delete(this.item.id).subscribe(
+        (status) => {
+          this.navCtrl.navigateBack('/items');
+        }
+      );
+    }
+  }
+
   private setItem(item: ItemModel) {
     this.item  = item;
     console.log(this.item);

@@ -16,6 +16,6 @@
     </p>
 
     <ion-button *ngIf="!isProcessing" expand="block" (click)="onSubmit($event)" [disabled]="!itemForm.valid && !isProcessing">{{getButtonText()}}</ion-button>
-    <ion-button *ngIf="!isProcessing && item" expand="block" color="danger" (click)="delete()">Delete item</ion-button>
+    <!-- <ion-button *ngIf="!isProcessing && item" expand="block" color="danger" (click)="delete()">Delete item</ion-button> -->
 
 </form>
