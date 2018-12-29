@@ -5,12 +5,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
+// the pages
 import { ItemsPage } from './items.page';
+import { ItemAddPage } from './item-add/item-add.page';
+import { ItemEditPage } from './item-edit/item-edit.page';
+
+// the components
 import { ItemsListComponent } from './items-list/items-list.component';
 import { ItemsListItemComponent } from './items-list-item/items-list-item.component';
 import { ItemAddEditComponent } from './item-add-edit/item-add-edit.component';
-import { ItemAddPage } from './item-add/item-add.page';
-import { ItemEditPage } from './item-edit/item-edit.page';
 
 const routes: Routes = [
   {
