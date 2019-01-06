@@ -1,5 +1,5 @@
 # IONIC 4 simple CRUD example
-This project is an IONIC version of my Angular project: https://github.com/fransyozef/crud-example-angular
+This project is an IONIC version of my Angular project: https://github.com/fransyozef/crud-example-angular. Please read the Medium post about this project: https://medium.com/@fransyozef/transition-an-angular-6-project-to-ionic-4-fe46c12210e2
 
 
 ## Why?
