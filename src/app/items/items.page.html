@@ -3,7 +3,7 @@
     <ion-title>Items overview</ion-title>
 
     <ion-buttons slot="end">
-      <ion-icon slot="icon-only" name="add" (click)="add()" color="primary"></ion-icon>
+      <ion-icon slot="icon-only" name="add" (click)="add()" color="primary" *ngIf="!isProcessing"></ion-icon>
 
     </ion-buttons>
 
